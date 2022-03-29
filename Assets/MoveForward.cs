@@ -14,9 +14,13 @@ public class MoveForward : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         // if the object goes too far up, destroy it
-        if (transform.position.z > topBound || transform.position.z < bottomBound)
+        if (transform.position.z > topBound)
         {
             Destroy(gameObject);
+        } else if (transform.position.z < bottomBound) {
+            Debug.Log("Game Over!");
+            Destroy(gameObject);
+
         }
     }
 }
